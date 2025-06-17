@@ -1388,88 +1388,81 @@ int main() {
                 });
             }
         }
-   class ContactForm {
-    static init() {
-        const form = document.querySelector('form[name="contact"]');
-        form?.addEventListener("submit", this.handleSubmit.bind(this));
-    }
+document.getElementById('contactForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-    static async handleSubmit(e) {
-        e.preventDefault();
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
 
-        const submitBtn = e.target.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<span>&#8593;</span> Sending...';
+    submitBtn.disabled = true;
 
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        submitBtn.disabled = true;
+    const formData = new FormData(e.target);
 
-        const formData = new FormData(e.target);
-
-        try {
-            const response = await fetch(e.target.action, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(formData).toString()
-            });
-
-            if (response.ok) {
-                // Show success message without redirecting
-                this.showMessage("cout << \"Message sent successfully!\" << endl;\ncout << \"I'll get back to you soon.\" << endl;", "success");
-                e.target.reset();
-            } else {
-                throw new Error('Network response was not ok');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            this.showMessage("cerr << \"Failed to send message. Please try again.\" << endl;", "error");
-        } finally {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        }
-    }
-
-    static showMessage(message, type) {
-        const alertDiv = document.createElement('div');
-        alertDiv.className = 'custom-alert';
-        alertDiv.textContent = message;
-
-        // Apply styles
-        Object.assign(alertDiv.style, {
-            position: 'fixed',
-            top: '-100px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            padding: '20px',
-            background: '#1e1e1e',
-            color: type === 'success' ? '#00ff00' : '#ff4444',
-            borderRadius: '5px',
-            fontFamily: 'Consolas, monospace',
-            boxShadow: '0 0 10px rgba(0, 255, 0, 0.2)',
-            transition: 'top 0.5s ease',
-            zIndex: '1000',
-            border: `1px solid ${type === 'success' ? '#00ff00' : '#ff4444'}`,
-            whiteSpace: 'pre'
+    try {
+        const response = await fetch('/', {
+            method: 'POST',
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
         });
 
-        document.body.appendChild(alertDiv);
-        
-        // Slide in
-        setTimeout(() => {
-            alertDiv.style.top = '20px';
-        }, 100);
-
-        // Remove after delay
-        setTimeout(() => {
-            alertDiv.style.top = '-100px';
-            setTimeout(() => alertDiv.remove(), 500);
-        }, 3000);
+        if (response.ok) {
+            showMessage('cout << "Message sent successfully!" << endl;\ncout << "I\'ll get back to you soon." << endl;', 'success');
+            e.target.reset();
+        } else {
+            throw new Error('Network response was not ok.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        showMessage('cerr << "Failed to send message!" << endl;', 'error');
+    } finally {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
     }
-}
-
-// Initialize the form
-document.addEventListener('DOMContentLoaded', () => {
-    ContactForm.init();
 });
+
+function showMessage(message, type) {
+    // Create alert div if it doesn't exist
+    let alertDiv = document.getElementById('customAlert');
+    if (!alertDiv) {
+        alertDiv = document.createElement('div');
+        alertDiv.id = 'customAlert';
+        document.body.appendChild(alertDiv);
+    }
+
+    // Set message and styles
+    alertDiv.textContent = message;
+    
+    Object.assign(alertDiv.style, {
+        position: 'fixed',
+        top: '-100px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        padding: '20px',
+        background: '#1e1e1e',
+        color: type === 'success' ? '#00ff00' : '#ff4444',
+        borderRadius: '5px',
+        fontFamily: 'Consolas, monospace',
+        boxShadow: '0 0 10px rgba(0, 255, 0, 0.2)',
+        transition: 'top 0.5s ease',
+        zIndex: '1000',
+        border: `1px solid ${type === 'success' ? '#00ff00' : '#ff4444'}`,
+        whiteSpace: 'pre'
+    });
+
+    // Animate in
+    setTimeout(() => {
+        alertDiv.style.top = '20px';
+    }, 100);
+
+    // Animate out and remove
+    setTimeout(() => {
+        alertDiv.style.top = '-100px';
+        setTimeout(() => {
+            alertDiv.style.display = 'none';
+        }, 500);
+    }, 3000);
+}
         class ProjectInteractions {
             static init() {
                 $$(".project-card").forEach((card) => {
