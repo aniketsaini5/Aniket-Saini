@@ -1388,7 +1388,7 @@ int main() {
                 });
             }
         }
-    class ContactForm {
+   class ContactForm {
     static init() {
         const form = document.querySelector('form[name="contact"]');
         form?.addEventListener("submit", this.handleSubmit.bind(this));
@@ -1406,18 +1406,19 @@ int main() {
         const formData = new FormData(e.target);
 
         try {
-            const response = await fetch("/", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            const response = await fetch(e.target.action, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams(formData).toString()
             });
 
-            if (!response.ok) {
+            if (response.ok) {
+                // Show success message without redirecting
+                this.showMessage("cout << \"Message sent successfully!\" << endl;\ncout << \"I'll get back to you soon.\" << endl;", "success");
+                e.target.reset();
+            } else {
                 throw new Error('Network response was not ok');
             }
-
-            this.showMessage("cout << \"Message sent successfully!\" << endl;\ncout << \"I'll get back to you soon.\" << endl;", "success");
-            e.target.reset();
         } catch (error) {
             console.error('Error:', error);
             this.showMessage("cerr << \"Failed to send message. Please try again.\" << endl;", "error");
