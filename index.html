@@ -58,7 +58,7 @@
         "name": "Aniket Saini",
         "jobTitle": "Full Stack Developer",
         "description": "Passionate Full Stack Developer specializing in MERN stack, C++, and modern web technologies",
-        "url": "https://aniketsaini.dev",
+        "url": "https://aniketsaini.netlify.app/",
         "sameAs": [
             "https://github.com/aniketsaini5",
             "https://linkedin.com/in/saini-aniket"
@@ -69,57 +69,6 @@
     }
     </script>
     <style>
-        /* Fix horizontal overflow */
-        body {
-            overflow-x: hidden;
-        }
-
-        /* Prevent long pre/code from overflowing screen */
-        pre,
-        code,
-        .code-block {
-            white-space: pre-wrap !important;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            max-width: 100%;
-            overflow-x: auto;
-        }
-
-        /* Ensure project cards and sections don't overflow */
-        .project-card,
-        .skill-category,
-        .contact-form,
-        .contact-info {
-            width: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-
-        /* Ensure input fields don’t overflow */
-        .form-input {
-            width: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-
-        /* Fix mobile padding issues */
-        .section,
-        .about-content,
-        .skills-grid,
-        .projects-grid,
-        .contact-container {
-            padding-left: 1rem;
-            padding-right: 1rem;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         :root {
             --bg-primary: #0f172a;
             --bg-secondary: #1e293b;
@@ -129,13 +78,21 @@
             --text-muted: #bbf7d0;
             --border-color: rgba(74, 222, 128, 0.2);
             --accent: #22c55e;
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+            --shadow: 0 10px 30px rgba(74, 222, 128, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         * {
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="%234ade80"><rect width="2" height="20"/></svg>'), auto;
         }
 
-        /* Special cursors for interactive elements */
         button,
         a,
         input,
@@ -144,40 +101,57 @@
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="%2322c55e"><rect width="16" height="20" rx="2"/></svg>'), pointer !important;
         }
 
-        /* Text selection cursor */
         .code-content,
         pre,
         code {
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="5" height="20" fill="%234ade80"><rect width="5" height="20"/></svg>'), text;
         }
 
+        * {
+            scrollbar-width: none;
+        }
+
+        :-webkit-scrollbar {
+            display: none;
+        }
+
+        ::selection {
+            color: #1dc45a;
+            background: #86efad5e;
+        }
+
+        /* For Firefox */
+        ::-moz-selection {
+            color: #1dc45a;
+            background: #86efad5e;
+        }
+
+
+
         body {
-            font-family: 'Fira Code', monospace;
+            font-family: "Fira Code", "Courier New", monospace;
             background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+            line-height: 1.2;
         }
 
-        ::-webkit-scrollbar-track {
-            background: var(--bg-secondary);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
         }
 
-        ::-webkit-scrollbar-thumb {
-            background: var(--text-primary);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent);
-        }
-
-        /* Header Styles */
         .header {
             position: fixed;
             top: 0;
@@ -186,13 +160,13 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -211,13 +185,14 @@
             display: flex;
             list-style: none;
             gap: 2rem;
+            margin: 0;
         }
 
         .nav-link {
             color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.9rem;
-            transition: color 0.3s ease;
+            transition: var(--transition);
             cursor: pointer;
         }
 
@@ -234,13 +209,12 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 30px;
             position: relative;
         }
 
@@ -252,10 +226,10 @@
         .code-editor {
             background: rgba(30, 41, 59, 0.5);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 2rem;
+            border-radius: var(--border-radius);
+            padding: 30px;
             backdrop-filter: blur(10px);
-            position: relative;
+            margin: 30px 0;
         }
 
         .editor-header {
@@ -300,6 +274,7 @@
             line-height: 1.8;
             white-space: pre-wrap;
             color: var(--text-primary);
+            min-height: 400px;
         }
 
         .cursor {
@@ -329,6 +304,7 @@
             text-align: center;
             cursor: pointer;
             animation: bounce 2s infinite;
+            color: var(--text-secondary);
         }
 
         @keyframes bounce {
@@ -350,11 +326,13 @@
             }
         }
 
-        /* Section Styles */
         .section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 5rem 0;
+        }
+
+        .section-alt {
+            background: rgba(30, 41, 59, 0.2);
+        
         }
 
         .section-title {
@@ -365,16 +343,17 @@
             color: var(--text-primary);
         }
 
-        .section.alt {
-            background: rgba(30, 41, 59, 0.2);
-        }
-
-        /* About Section */
         .about-content {
             background: rgba(30, 41, 59, 0.3);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             padding: 2rem;
+        }
+
+        .about-description {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-top: 1.5rem;
         }
 
         .code-block {
@@ -387,20 +366,22 @@
             overflow-x: auto;
         }
 
-        /* Projects Section */
+        .code-block code {
+            color: var(--text-primary);
+        }
+
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
         }
 
         .project-card {
             background: rgba(30, 41, 59, 0.5);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             padding: 2rem;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
         }
@@ -408,7 +389,7 @@
         .project-card:hover {
             border-color: var(--text-primary);
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(74, 222, 128, 0.1);
+            box-shadow: var(--shadow);
         }
 
         .project-title {
@@ -416,14 +397,12 @@
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .project-description {
             color: var(--text-muted);
             margin-bottom: 1.5rem;
+            line-height: 1.6;
         }
 
         .tech-stack {
@@ -447,55 +426,16 @@
             gap: 1rem;
         }
 
-        .btn {
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            border: none;
-            font-family: inherit;
-        }
-
-        .btn-primary {
-            background: rgba(74, 222, 128, 0.2);
-            color: var(--text-secondary);
-            border: 1px solid rgba(74, 222, 128, 0.3);
-        }
-
-        .btn-primary:hover {
-            background: rgba(74, 222, 128, 0.3);
-            color: var(--text-primary);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-secondary);
-            border: 1px solid var(--border-color);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(74, 222, 128, 0.1);
-            color: var(--text-primary);
-        }
-
-        /* Skills Section */
-
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
-            margin-top: 2rem;
         }
 
         .skill-category {
             background: rgba(30, 41, 59, 0.3);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             padding: 2rem;
         }
 
@@ -540,58 +480,26 @@
             height: 100%;
             background: linear-gradient(90deg, var(--text-primary), var(--accent));
             border-radius: 4px;
-            transition: width 2s ease;
             width: 0%;
         }
 
-
-
-
-        /* Contact Section */
         .contact-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
         }
 
-        .contact-info {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 2rem;
-        }
-
+        .contact-info,
         .contact-form {
             background: rgba(30, 41, 59, 0.5);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             padding: 2rem;
         }
 
-        .form-group {
+        .contact-description {
+            color: var(--text-muted);
             margin-bottom: 1.5rem;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 0.75rem;
-            background: rgba(15, 23, 42, 0.5);
-            border: 1px solid rgba(74, 222, 128, 0.3);
-            border-radius: 4px;
-            color: var(--text-secondary);
-            font-family: inherit;
-            font-size: 0.9rem;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--text-primary);
-            box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.1);
-        }
-
-        .form-input::placeholder {
-            color: rgba(187, 247, 208, 0.5);
         }
 
         .contact-links {
@@ -607,81 +515,92 @@
             gap: 0.75rem;
             color: var(--text-secondary);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: var(--transition);
         }
 
         .contact-link:hover {
             color: var(--text-primary);
         }
 
-        .form-input {
-            resize: none;
+        .form-group {
+            margin-bottom: 1.5rem;
         }
 
-        /* Footer */
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            resize: vertical;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--text-primary);
+            box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: rgba(187, 247, 208, 0.5);
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: rgba(74, 222, 128, 0.2);
+            color: var(--text-secondary);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: rgba(74, 222, 128, 0.3);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(74, 222, 128, 0.1);
+            color: var(--text-primary);
+        }
+
+        .btn-full {
+            width: 100%;
+            justify-content: center;
+            padding: 0.75rem 1rem;
+        }
+
         .footer {
-            padding: 2rem;
+            padding: 2rem 0;
             border-top: 1px solid var(--border-color);
             text-align: center;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(15, 23, 42, 0.95);
-                backdrop-filter: blur(10px);
-                flex-direction: column;
-                padding: 1rem 2rem;
-                border-top: 1px solid var(--border-color);
-            }
-
-            .nav-menu.active {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero {
-                padding: 1rem;
-            }
-
-            .code-editor {
-                padding: 1rem;
-            }
-
-            .code-content {
-                font-size: 0.9rem;
-            }
-
-            .section {
-                padding: 3rem 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
+        .footer-description {
+            color: var(--text-muted);
+            margin-top: 1rem;
         }
 
-        /* Animation Classes */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -716,22 +635,16 @@
         }
 
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: row;
-                justify-content: space-between;
-                padding: 1rem;
-            }
-
             .nav-menu {
                 display: none;
-                flex-direction: column;
-                background: rgba(15, 23, 42, 0.98);
-                width: 100%;
                 position: absolute;
                 top: 100%;
                 left: 0;
-                z-index: 1000;
-                padding: 1rem;
+                width: 100%;
+                background: rgba(15, 23, 42, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 1rem 2rem;
                 border-top: 1px solid var(--border-color);
             }
 
@@ -741,144 +654,136 @@
 
             .mobile-menu-btn {
                 display: block;
-                font-size: 1.5rem;
-                background: none;
-                border: none;
-            }
-
-            .section {
-                padding: 2.5rem 1rem;
-            }
-
-            .section-title {
-                font-size: 1.6rem;
-                margin-bottom: 2rem;
             }
 
             .hero {
                 padding: 1rem;
-                text-align: center;
-                min-height: 80vh;
             }
 
             .code-editor {
                 padding: 1rem;
-                font-size: 0.85rem;
             }
 
-            .scroll-indicator {
-                bottom: 1rem;
+            .code-content {
+                font-size: 0.9rem;
+                min-height: 300px;
             }
 
-            .projects-grid,
-            .skills-grid,
-            .contact-container {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .skills-grid {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .code-editor {
+                padding: 0.75rem;
             }
 
             .project-card,
             .skill-category,
             .contact-info,
             .contact-form {
-                padding: 1rem;
-                font-size: 0.9rem;
+                padding: 1.5rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        @media print {
+
+            .header,
+            .scroll-indicator,
+            .mobile-menu-btn {
+                display: none;
             }
 
-            .project-description {
-                font-size: 0.85rem;
+            body {
+                background: white;
+                color: black;
             }
 
-            .tech-tag {
-                font-size: 0.75rem;
-            }
-
-            .code-block {
-                font-size: 0.8rem;
-                padding: 1rem;
-            }
-
-            .form-input {
-                font-size: 0.85rem;
-                padding: 0.6rem;
-            }
-
-            .btn {
-                font-size: 0.85rem;
-                padding: 0.5rem 0.75rem;
-            }
-
-            .footer {
-                padding: 1rem;
-            }
-
-            .code-content {
-                font-size: 0.85rem;
-                line-height: 1.5;
-            }
-
-            .progress-bar {
-                height: 6px;
-            }
-
-            .progress-fill {
-                transition: width 1s ease;
+            .section {
+                page-break-inside: avoid;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="nav-container">
+    <header class="header" id="header">
+        <nav class="nav-container">
             <div class="logo">
-                <span> /&gt;__&lt;\</span>
+                <span>/&gt;__&lt;\</span>
                 <span>&lt;Aniket Saini/&gt;</span>
             </div>
-            <nav>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#about" class="nav-link">#include &lt;about&gt;</a></li>
-                    <li><a href="#projects" class="nav-link">#include &lt;projects&gt;</a></li>
-                    <li><a href="#skills" class="nav-link">#include &lt;skills&gt;</a></li>
-                    <li><a href="#contact" class="nav-link">#include &lt;contact&gt;</a></li>
-                </ul>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-            </nav>
-        </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" class="nav-link">#include &lt;about&gt;</a></li>
+                <li><a href="#projects" class="nav-link">#include &lt;projects&gt;</a></li>
+                <li><a href="#skills" class="nav-link">#include &lt;skills&gt;</a></li>
+                <li><a href="#contact" class="nav-link">#include &lt;contact&gt;</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="hero-container">
             <div class="code-editor">
                 <div class="editor-header">
                     <div class="editor-dots">
-                        <div class="dot red"></div>
-                        <div class="dot yellow"></div>
-                        <div class="dot green"></div>
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
                     </div>
-                    <div class="file-name">main.cpp</div>
+                    <span class="file-name">main.cpp</span>
                 </div>
                 <div class="code-content" id="typingCode"></div>
             </div>
         </div>
-        <div class="scroll-indicator" onclick="scrollToSection('about')">
-            <div style="color: var(--text-secondary); margin-bottom: 0.5rem;">// Explore my work</div>
-            <div style="font-size: 1.5rem;">↓</div>
+        <div class="scroll-indicator" id="scrollIndicator">
+            <p>// Explore my work</p>
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section fade-in">
-        <h2 class="section-title">/* About Me */</h2>
-        <div class="about-content">
-            <div class="code-block">
-                <pre><code>class AboutMe {
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">/* About Me */</h2>
+            <div class="about-content">
+                <div class="code-block">
+                    <pre><code>class AboutMe {
   private:
     string passion = "Problem Solving";
     int experience_years = fresher;
     bool loves_coding = true;
-    
+
   public:
     string getDescription() {
       return "Passionate full-stack developer with a strong "
@@ -886,7 +791,7 @@
              "I enjoy building efficient, scalable applications "
              "and solving complex algorithmic challenges.";
     }
-    
+
     vector&lt;string&gt; getInterests() {
       return {
         "Data Structures & Algorithms",
@@ -897,74 +802,69 @@
       };
     }
 };</code></pre>
+                </div>
+                <p class="about-description">
+                    I'm a dedicated developer who bridges the gap between low-level programming concepts and modern web
+                    development. My journey started with C++, which gave me a solid understanding of computer science
+                    fundamentals, and has evolved into full-stack web development using the MERN stack.
+                </p>
             </div>
-            <p style="color: var(--text-muted); line-height: 1.8;">
-                I'm a dedicated developer who bridges the gap between low-level programming concepts and modern web
-                development. My journey started with C++, which gave me a solid understanding of computer science
-                fundamentals, and has evolved into full-stack web development using the MERN stack.
-            </p>
         </div>
     </section>
 
-
-    <!-- Projects Section -->
-    <section id="projects" class="section alt fade-in" role="region" aria-labelledby="projects-title">
-        <h2 id="projects-title" class="section-title">/* Featured Projects */</h2>
-        <div class="projects-grid">
-            <!-- TeamCode Hub Project -->
-            <article class="project-card slide-in-left">
-                <header class="project-title">
-
-                    <h3>TeamCode Hub</h3>
-                </header>
-                <p class="project-description">
-                    A collaborative platform for developers to share code, manage projects, and work together
-                    seamlessly.
-                    Built with MERN stack and integrated with GitHub OAuth for secure authentication and repository
-                    management.
-                </p>
-                <div class="code-block">
-                    <pre><code>// GitHub OAuth Integration
+    <section id="projects" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">/* Featured Projects */</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <header class="project-header">
+                        <h3 class="project-title">TeamCode Hub</h3>
+                    </header>
+                    <p class="project-description">
+                        A collaborative platform for developers to share code, manage projects, and work together
+                        seamlessly. Built with MERN stack and integrated with GitHub OAuth for secure authentication.
+                    </p>
+                    <div class="code-block">
+                        <pre><code>// GitHub OAuth Integration
 const githubAuth = async (req, res) => {
   const { code } = req.query;
-  const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
+  const tokenResponse = await fetch(
+    'https://github.com/login/oauth/access_token', {
     method: 'POST',
     headers: { 'Accept': 'application/json' },
     body: JSON.stringify({ client_id, client_secret, code })
   });
   return tokenResponse.json();
 };</code></pre>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">MongoDB</span>
-                    <span class="tech-tag">Express.js</span>
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">GitHub OAuth</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/aniketsaini5/TeamCodeHub" target="_blank" rel="noopener noreferrer"
-                        class="btn btn-secondary" aria-label="View TeamCode Hub source code">
-                        <i class="fab fa-github" aria-hidden="true"></i> Code
-                    </a>
-                    <a href="#" class="btn btn-primary" aria-label="View TeamCode Hub demo (coming soon)">
-                        <i class="fas fa-external-link-alt" aria-hidden="true"></i> Demo Soon
-                    </a>
-                </div>
-            </article>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Express.js</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">GitHub OAuth</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/aniketsaini5/TeamCodeHub" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-secondary">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i> Demo Soon
+                        </a>
+                    </div>
+                </article>
 
-            <!-- SCACLUB Project -->
-            <article class="project-card slide-in-right">
-                <header class="project-title">
-
-                    <h3>SCACLUB</h3>
-                </header>
-                <p class="project-description">
-                    A modern club management system built with React and integrated with Google Apps Script for seamless
-                    data management. Features member registration, event management, and automated notifications.
-                </p>
-                <div class="code-block">
-                    <pre><code>// Google Apps Script Integration
+                <article class="project-card">
+                    <header class="project-header">
+                        <h3 class="project-title">SCACLUB</h3>
+                    </header>
+                    <p class="project-description">
+                        A modern club management system built with React and integrated with Google Apps Script for
+                        seamless data management. Features member registration and event management.
+                    </p>
+                    <div class="code-block">
+                        <pre><code>// Google Apps Script Integration
 const submitToGoogleSheets = async (formData) => {
   const response = await fetch(GOOGLE_SCRIPT_URL, {
     method: 'POST',
@@ -973,39 +873,36 @@ const submitToGoogleSheets = async (formData) => {
   });
   return response.json();
 };</code></pre>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">Google Apps Script</span>
-                    <span class="tech-tag">CSS3</span>
-                    <span class="tech-tag">Vercel</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/aniketsaini5/SCACLUB" target="_blank" rel="noopener noreferrer"
-                        class="btn btn-secondary" aria-label="View SCACLUB source code">
-                        <i class="fab fa-github" aria-hidden="true"></i> Code
-                    </a>
-                    <a href="https://scaclub.vercel.app/" target="_blank" rel="noopener noreferrer"
-                        class="btn btn-primary" aria-label="View SCACLUB live demo">
-                        <i class="fas fa-external-link-alt" aria-hidden="true"></i> Live Demo
-                    </a>
-                </div>
-            </article>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Google Apps Script</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">Vercel</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/aniketsaini5/SCACLUB" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-secondary">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                        <a href="https://scaclub.vercel.app/" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i> Live Demo
+                        </a>
+                    </div>
+                </article>
 
-            <!-- JAVI Project -->
-            <article class="project-card slide-in-left">
-                <header class="project-title">
-
-                    <h3>JAVI - AI Assistant</h3>
-                </header>
-                <p class="project-description">
-                    An intelligent desktop AI assistant built with Python and Tkinter GUI, powered by Google's Gemini
-                    API.
-                    Features voice recognition, natural language processing, and task automation capabilities.
-                </p>
-                <div class="code-block">
-                    <pre><code># Gemini AI Integration
+                <article class="project-card">
+                    <header class="project-header">
+                        <h3 class="project-title">JAVI - AI Assistant</h3>
+                    </header>
+                    <p class="project-description">
+                        An intelligent desktop AI assistant built with Python and Tkinter GUI, powered by Google's
+                        Gemini API. Features voice recognition and natural language processing.
+                    </p>
+                    <div class="code-block">
+                        <pre><code># Gemini AI Integration
 import google.generativeai as genai
 
 def get_ai_response(user_input):
@@ -1013,339 +910,337 @@ def get_ai_response(user_input):
     model = genai.GenerativeModel('gemini-pro')
     response = model.generate_content(user_input)
     return response.text</code></pre>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Tkinter</span>
-                    <span class="tech-tag">Gemini API</span>
-                    <span class="tech-tag">Speech Recognition</span>
-                    <span class="tech-tag">NLP</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/aniketsaini5/JAVI" target="_blank" rel="noopener noreferrer"
-                        class="btn btn-secondary" aria-label="View JAVI source code">
-                        <i class="fab fa-github" aria-hidden="true"></i> Code
-                    </a>
-                    <a href="https://drive.google.com/drive/folders/1MI_Dj5PEOEzuPF3G5RW1Zr6iImGd37dw?hl=en"
-                        target="_blank" rel="noopener noreferrer" class="btn btn-primary"
-                        aria-label="Download JAVI application">
-                        <i class="fas fa-download" aria-hidden="true"></i> Download
-                    </a>
-                </div>
-            </article>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Tkinter</span>
+                        <span class="tech-tag">Gemini API</span>
+                        <span class="tech-tag">Speech Recognition</span>
+                        <span class="tech-tag">NLP</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/aniketsaini5/JAVI" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-secondary">
+                            <i class="fab fa-github"></i> Code
+                        </a>
+                        <a href="https://drive.google.com/drive/folders/1MI_Dj5PEOEzuPF3G5RW1Zr6iImGd37dw?hl=en"
+                            target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+                </article>
+            </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section fade-in">
-        <h2 class="section-title">/* Technical Skills */</h2>
-        <div class="skills-grid">
-            <div class="skill-category slide-in-left">
-                <h3 class="category-title">// Programming Languages</h3>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">C/C++</span>
-                        <span class="skill-percentage">90%</span>
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">/* Technical Skills */</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="category-title">// Programming Languages</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">C/C++</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%;"></div>
+                        </div>
+                        <div class="code-block">
+                            <code>int main() { return 0; }</code>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="90"></div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%;"></div>
+                        </div>
+                        <div class="code-block">
+                            <code>print('Hello World!')</code>
+                        </div>
                     </div>
-                    <div class="code-block">
-                        <code>int main() { return 0; }</code>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Java</span>
+                            <span class="skill-percentage">54%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 54%;"></div>
+                        </div>
+                        <div class="code-block">
+                            <code>public static void main(String[] args)</code>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percentage">84%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 84%;"></div>
+                        </div>
+                        <div class="code-block">
+                            <code>console.log("Hello world");</code>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">Python</span>
-                        <span class="skill-percentage">90%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="90"></div>
-                    </div>
-                    <div class="code-block">
-                        <code>print('Hello World!')</code>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">JavaScript</span>
-                        <span class="skill-percentage">85%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="85"></div>
-                    </div>
-                    <div class="code-block">
-                        <code>const func = () => {}</code>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">Java</span>
-                        <span class="skill-percentage">50%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="50"></div>
-                    </div>
-                    <div class="code-block">
-                        <code>public static void main(a) </code>
-                    </div>
-                </div>
-            </div>
 
-            <div class="skill-category slide-in-right">
-                <h3 class="category-title">// Frontend Technologies</h3>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">React.js</span>
-                        <span class="skill-percentage">88%</span>
+                <div class="skill-category">
+                    <h3 class="category-title">// Frontend Technologies</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">React.js</span>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 88%;"></div>
+                        </div>
+                        <div class="code-block">
+                            <code>const [state, setState] = useState()</code>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="88"></div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">HTML5</span>
+                            <span class="skill-percentage">99%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 99%;"></div>
+                        </div>
+                        <div class="code-block">
+                            <code>&lt;div class="container"&gt;&lt;/div&gt;</code>
+                        </div>
                     </div>
-                    <div class="code-block">
-                        <code>const [state, setState] = useState()</code>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">CSS 3</span>
+                            <span class="skill-percentage">99%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 99%;"></div>
+                        </div>
+                        <div class="code-block">
+                            <code>.container { display: flex; }</code>
+                        </div>
                     </div>
-                </div>
-                <!-- <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">Next.js</span>
-                        <span class="skill-percentage">82%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="82"></div>
-                    </div>
-                    <div class="code-block">
-                        <code>export default function Page()</code>
-                    </div>
-                </div> -->
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">HTML5</span>
-                        <span class="skill-percentage">99%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="99"></div>
-                    </div>
-                    <div class="code-block">
-                        <code>&lt;div class='container'&gt;</code>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">CSS3</span>
-                        <span class="skill-percentage">99%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="99"></div>
-                    </div>
-                    <div class="code-block">
-                        <code>.container{ 
-                            height=100px;}
-                        </code>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name"> Bootstrap 5</span>
-                        <span class="skill-percentage">99%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="99"></div>
-                    </div>
-                    <div class="code-block">
-                        <code>&lt;p class='display 5'&gt;</code>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Bootstrap 5</span>
+                            <span class="skill-percentage">99%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 99%;"></div>
+                        </div>
+                        <div class="code-block">
+                            <code>&lt;div class="container"&gt;&lt;/div&gt;</code>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="skill-category slide-in-left">
-                <h3 class="category-title">// Backend & Database</h3>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">Node.js</span>
-                        <span class="skill-percentage">83%</span>
+                <div class="skill-category">
+                    <h3 class="category-title">// Backend & Database</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Node.js</span>
+                            <span class="skill-percentage">83%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 83%;"></div>
+                        </div>
+                        <div class="code-block">
+                            <code>app.listen(3000);</code>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="83"></div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Express.js</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%;"></div>
+                        </div>
+                        <div class="code-block">
+                            <code>app.get('/api', (req, res) => {});</code>
+                        </div>
                     </div>
-                    <div class="code-block">
-                        <code>app.listen(3000)</code>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">MySQL</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%;"></div>
+                        </div>
+                        <div class="code-block">
+                            <code>SELECT * FROM table;</code>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">MongoDB</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%;"></div>
+                        </div>
+                        <div class="code-block">
+                            <code>db.collection.find({})</code>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">Express.js</span>
-                        <span class="skill-percentage">80%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="80"></div>
-                    </div>
-                    <div class="code-block">
-                        <code>app.get('/api')</code>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">MongoDB</span>
-                        <span class="skill-percentage">78%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="78"></div>
-                    </div>
-                    <div class="code-block">
-                        <code>db.collection.find({})</code>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">MySQL</span>
-                        <span class="skill-percentage">75%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="75"></div>
-                    </div>
-                    <div class="code-block">
-                        <code>Select me from Myself;</code>
-                    </div>
-                </div>
-            </div>
 
-            <div class="skill-category slide-in-right">
-                <h3 class="category-title">// Tools & Technologies</h3>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">Git</span>
-                        <span class="skill-percentage">85%</span>
+                <div class="skill-category">
+                    <h3 class="category-title">// Tools & Technologies</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Git</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+                        <div class="code-block">
+                            <code>git commit -m "message"</code>
+                        </div>
                     </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="85"></div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">GitHub</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%;"></div>
+                        </div>
+                        <div class="code-block">
+                            <code>git push origin main</code>
+                        </div>
                     </div>
-                    <div class="code-block">
-                        <code>git commit -m 'message'</code>
-                    </div>
-                </div>
-                <!-- <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">Docker</span>
-                        <span class="skill-percentage">70%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="70"></div>
-                    </div>
-                    <div class="code-block">
-                        <code>FROM node:alpine</code>
-                    </div>
-                </div> -->
-                <div class="skill-header">
-                    <span class="skill-name">GitHub</span>
-                    <span class="skill-percentage">90%</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" data-width="90"></div>
-                </div>
-                <div class="code-block">
-                    <code>git push origin main</code>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span class="skill-name">Linux</span>
-                        <span class="skill-percentage">80%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="80"></div>
-                    </div>
-                    <div class="code-block">
-                        <code>sudo apt install package</code>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Linux</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%;"></div>
+                        </div>
+                        <div class="code-block">
+                            <code>ls -l</code>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section alt fade-in">
-        <h2 class="section-title">/* Get In Touch */</h2>
-        <div class="contact-container">
-            <div class="contact-info slide-in-left">
-                <h3 class="category-title">// Contact Information</h3>
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-                    Let's connect and discuss opportunities
-                </p>
-                <div class="code-block">
-                    <pre><code>struct ContactInfo {
+
+    <section id="contact" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">/* Get In Touch */</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 class="category-title">// Contact Information</h3>
+                    <p class="contact-description">
+                        Let's connect and discuss opportunities
+                    </p>
+                    <div class="code-block">
+                        <pre><code>struct ContactInfo {
   string email = "aniketsainikdl@gmail.com";
   string linkedin = "linkedin.com/in/saini-aniket";
   string github = "github.com/aniketsaini5";
   bool available_for_hire = true;
 };</code></pre>
+                    </div>
+                    <div class="contact-links">
+                        <a href="mailto:aniketsainikdl@gmail.com" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>aniketsainikdl@gmail.com</span>
+                        </a>
+                        <a href="https://github.com/aniketsaini5" target="_blank" rel="noopener noreferrer"
+                            class="contact-link">
+                            <i class="fab fa-github"></i>
+                            <span>github.com/aniketsaini5</span>
+                        </a>
+                        <a href="https://linkedin.com/in/saini-aniket" target="_blank" rel="noopener noreferrer"
+                            class="contact-link">
+                            <i class="fab fa-linkedin"></i>
+                            <span>linkedin.com/in/saini-aniket</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="contact-links">
-                    <a href="mailto:aniketsainikdl@gmail.com" class="contact-link">
-                        <span><i class="fa-solid fa-envelope" style="color: #4ade80;"></i></span>
-                        <span>aniketsainikdl@gmail.com</span>
-                    </a>
-                    <a href="https://github.com/aniketsaini5" target="_blank" class="contact-link">
-                        <span><i class="fa-brands fa-github" style="color: #4ade80;"></i></span>
-                        <span>github.com/aniketsaini5</span>
-                    </a>
-                    <a href="https://linkedin.com/in/saini-aniket" target="_blank" class="contact-link">
-                        <span><i class="fa-brands fa-linkedin" style="color: #4ade80;"></i></span>
-                        <span>linkedin.com/in/saini-aniket</span>
-                    </a>
+                <div class="contact-form">
+                    <h3 class="category-title">// Send Message</h3>
+                    <p class="contact-description">
+                        Drop me a line and I'll get back to you
+                    </p>
+                    <form id="contactForm" netlify>
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-input" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-input" placeholder="your.email@example.com"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" class="form-input" rows="4" placeholder="Your message here..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
                 </div>
-            </div>
-
-            <div class="contact-form slide-in-right">
-                <h3 class="category-title">// Send Message</h3>
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
-                    Drop me a line and I'll get back to you
-                </p>
-                <form id="contactForm" netlify>
-                    <input type="hidden" name="form-name" value="contactForm" />
-                    <div class="form-group">
-                        <input type="text" name="name" class="form-input" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" class="form-input" placeholder="your.email@example.com"
-                            required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" class="form-input" rows="4" placeholder="Your message here..."
-                            required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">
-                        <span>--></span>
-                        Send Message
-                    </button>
-                </form>
             </div>
         </div>
     </section>
+       <div id="customAlert"></div>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="code-block">
-            <pre><code>// Thank you for visiting my portfolio
+        <div class="container">
+            <div class="code-block">
+                <pre><code>// Thank you for visiting my portfolio
 int main() {
     cout << "© <span id='year'></span> Aniket Saini. All rights reserved." << endl;
-    cout << "Built with HTML, CSS, JavaScript and lots of <i class="fas fa-heart"></i> " << endl;
+    cout << "Built with HTML, CSS, JavaScript and lots of ❤️" << endl;
     return 0;
 }</code></pre>
+            </div>
+            <p class="footer-description">
+                Designed and developed with passion for clean code and great user experiences
+            </p>
         </div>
-        <p style="color: rgba(187, 247, 208, 0.7); font-size: 0.9rem; margin-top: 1rem;">
-            Designed and developed with passion for clean code and great user experiences
-        </p>
     </footer>
 
     <script>
-        // change the current year
-        document.getElementById('year').textContent = new Date().getFullYear();
+        const $ = (selector) => document.querySelector(selector);
+        const $$ = (selector) => document.querySelectorAll(selector);
 
-        // Typing Animation
+        const elements = {
+            header: $("#header"),
+            navMenu: $("#navMenu"),
+            mobileMenuBtn: $("#mobileMenuBtn"),
+            typingCode: $("#typingCode"),
+            scrollIndicator: $("#scrollIndicator"),
+            contactForm: $("#contactForm"),
+            year: $("#year"),
+        };
+
+        const config = {
+            typingSpeed: 50,
+            observerOptions: {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px",
+            },
+        };
+
         const codeLines = [
-            "#include &lt;iostream&gt;",
-            "#include &lt;string&gt;",
-            "#include &lt;developer&gt;",
+            "#include <iostream>",
+            "#include <string>",
+            "#include <developer>",
             "",
             "class Developer {",
             "  public:",
@@ -1353,157 +1248,227 @@ int main() {
             '    string role = "Full Stack Developer";',
             "    vector<string> skills = {",
             '      "C++", "JavaScript", "React",',
-            '      "Node.js", "MongoDB", "Express", "Python" ',
+            '      "Node.js", "MongoDB", "Express", "Python"',
             "    };",
-            "    ",
+            "",
             "    void introduce() {",
             '      cout << "Hello, World!" << endl;',
-            '      cout << "I\'m " << Aniket Saini << endl;',
+            '      cout << "I\'m " << name << endl;',
             '      cout << "Welcome to my portfolio" << endl;',
             "    }",
             "};",
         ];
 
-        let currentIndex = 0;
-        let currentText = "";
-        const typingElement = document.getElementById('typingCode');
-        const fullText = codeLines.join('\n');
-
-        function typeCode() {
-            if (currentIndex < fullText.length) {
-                currentText += fullText[currentIndex];
-                typingElement.innerHTML = currentText + '<span class="cursor">█</span>';
-                currentIndex++;
-                setTimeout(typeCode, 50);
-            } else {
-                // Keep cursor blinking
-                setInterval(() => {
-                    const cursor = typingElement.querySelector('.cursor');
-                    if (cursor) {
-                        cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
-                    }
-                }, 500);
+        class TypingAnimation {
+            constructor(element, lines, speed = 50) {
+                this.element = element;
+                this.lines = lines;
+                this.speed = speed;
+                this.fullText = lines.join("\n");
+                this.currentIndex = 0;
+                this.currentText = "";
             }
-        }
 
-        // Start typing animation when page loads
-        window.addEventListener('load', () => {
-            setTimeout(typeCode, 1000);
-        });
-
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Smooth Scrolling
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
+            start() {
+                this.type();
             }
-        }
 
-        // Add click listeners to nav links
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-                scrollToSection(targetId);
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-
-                    // Animate progress bars when skills section is visible
-                    if (entry.target.id === 'skills') {
-                        setTimeout(() => {
-                            document.querySelectorAll('.progress-fill').forEach(bar => {
-                                const width = bar.getAttribute('data-width');
-                                bar.style.width = width + '%';
-                            });
-                        }, 500);
-                    }
+            type() {
+                if (this.currentIndex < this.fullText.length) {
+                    this.currentText += this.fullText[this.currentIndex];
+                    this.element.innerHTML = this.escapeHtml(this.currentText) + '<span class="cursor">█</span>';
+                    this.currentIndex++;
+                    setTimeout(() => this.type(), this.speed);
+                } else {
+                    this.complete();
                 }
-            });
-        }, observerOptions);
+            }
 
-        // Observe all animated elements
-        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
-            observer.observe(el);
-        });
+            complete() {
+                elements.scrollIndicator.style.display = "none";
+            }
 
-        // Contact Form Handling
-        document.getElementById('contactForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
+            escapeHtml(text) {
+                const div = document.createElement("div");
+                div.textContent = text;
+                return div.innerHTML;
+            }
+        }
 
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
+        class SmoothScroll {
+            static scrollTo(elementId) {
+                const element = $(`#${elementId}`);
+                if (element) {
+                    element.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                    });
+                }
+            }
 
-            submitBtn.innerHTML = '<span>&#8593;</span> Sending...';
-            submitBtn.disabled = true;
-
-            const formData = new FormData(e.target);
-
-            try {
-                const response = await fetch('/', {
-                    method: 'POST',
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: new URLSearchParams(formData).toString()
+            static init() {
+                $$(".nav-link").forEach((link) => {
+                    link.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        const targetId = link.getAttribute("href").substring(1);
+                        this.scrollTo(targetId);
+                        elements.navMenu.classList.remove("active");
+                    });
                 });
 
-                if (response.ok) {
-                    alert('Message sent successfully! I\'ll get back to you soon.');
-                    e.target.reset();
-                } else {
-                    throw new Error('Network response was not ok.');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('There was a problem submitting the form.');
-            } finally {
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
+                elements.scrollIndicator?.addEventListener("click", () => {
+                    this.scrollTo("about");
+                });
             }
-        });
+        }
 
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(15, 23, 42, 0.98)';
-            } else {
-                header.style.background = 'rgba(15, 23, 42, 0.95)';
+        class MobileMenu {
+            static init() {
+                elements.mobileMenuBtn?.addEventListener("click", () => {
+                    elements.navMenu.classList.toggle("active");
+                });
+
+                document.addEventListener("click", (e) => {
+                    if (!elements.navMenu.contains(e.target) && !elements.mobileMenuBtn.contains(e.target)) {
+                        elements.navMenu.classList.remove("active");
+                    }
+                });
             }
-        });
+        }
 
-        // Add some interactive effects
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-10px) scale(1.02)';
-            });
+        class AnimationObserver {
+            constructor() {
+                this.observer = new IntersectionObserver(this.handleIntersection.bind(this), config.observerOptions);
+            }
 
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) scale(1)';
-            });
-        });
+            handleIntersection(entries) {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
 
-        // Console welcome message
-        console.log(`
-%c/* Welcome to my portfolio! */
+                        if (entry.target.id === "skills") {
+                            setTimeout(() => this.animateProgressBars(), 500);
+                        }
+                    }
+                });
+            }
+
+            animateProgressBars() {
+                $$(".progress-fill").forEach((bar) => {
+                    const width = bar.getAttribute("data-width");
+                    bar.style.width = width + "%";
+                });
+            }
+
+            observe() {
+                $$(".fade-in, .slide-in-left, .slide-in-right").forEach((el) => {
+                    this.observer.observe(el);
+                });
+            }
+        }
+
+        class HeaderScroll {
+            static init() {
+                let ticking = false;
+
+                const updateHeader = () => {
+                    if (window.scrollY > 100) {
+                        elements.header.style.background = "rgba(15, 23, 42, 0.98)";
+                    } else {
+                        elements.header.style.background = "rgba(15, 23, 42, 0.95)";
+                    }
+                    ticking = false;
+                };
+
+                window.addEventListener("scroll", () => {
+                    if (!ticking) {
+                        requestAnimationFrame(updateHeader);
+                        ticking = true;
+                    }
+                });
+            }
+        }
+class ContactForm {
+    static init() {
+        elements.contactForm?.addEventListener("submit", this.handleSubmit.bind(this));
+    }
+
+    static async handleSubmit(e) {
+        e.preventDefault();
+
+        const submitBtn = e.target.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+
+        const formData = new FormData(e.target);
+
+        try {
+            await new Promise((resolve) => setTimeout(resolve, 2000));
+
+            this.showMessage("Message sent successfully! I'll get back to you soon.", "success");
+            e.target.reset();
+        } catch (error) {
+            
+            this.showMessage("There was a problem submitting the form. Please try again.", "error");
+        } finally {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
+    }
+
+    static showMessage(message, type) {
+        const alertDiv = document.getElementById('customAlert');
+        alertDiv.textContent = message;
+
+        // Apply inline styles
+        alertDiv.style.position = 'fixed';
+        alertDiv.style.top = '50%';
+        alertDiv.style.left = '50%';
+        alertDiv.style.transform = 'translate(-50%, -50%)';
+        alertDiv.style.padding = '20px';
+        alertDiv.style.borderRadius = '5px';
+        alertDiv.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+        alertDiv.style.zIndex = '1000';
+        alertDiv.style.display = 'block';
+        alertDiv.style.textAlign = 'center';
+
+        // Set background color based on message type
+        if (type === 'success') {
+            alertDiv.style.backgroundColor = '#295c4c'; 
+            alertDiv.style.color = '#4ade80';  
+        } else if (type === 'error') {
+            alertDiv.style.backgroundColor = '#f44336'; 
+            alertDiv.style.color = 'rgba(255, 0, 0, 0.459)';
+        }
+
+        // Hide the alert after 2 seconds
+        setTimeout(function() {
+            alertDiv.style.display = 'none';
+        }, 3000);
+    }
+}
+
+
+        class ProjectInteractions {
+            static init() {
+                $$(".project-card").forEach((card) => {
+                    card.addEventListener("mouseenter", () => {
+                        card.style.transform = "translateY(-10px) scale(1.02)";
+                    });
+
+                    card.addEventListener("mouseleave", () => {
+                        card.style.transform = "translateY(0) scale(1)";
+                    });
+                });
+            }
+        }
+
+        class ConsoleWelcome {
+            static show() {
+                console.log(
+                    `%c/* Welcome to my portfolio! */
 %cclass Developer {
   public:
     void greetVisitor() {
@@ -1511,9 +1476,58 @@ int main() {
       cout << "Feel free to reach out if you'd like to connect." << endl;
     }
 };`,
-            'color: #4ade80; font-size: 16px; font-weight: bold;',
-            'color: #86efac; font-size: 12px; font-family: monospace;'
-        );
+                    "color: #4ade80; font-size: 16px; font-weight: bold;",
+                    "color: #86efac; font-size: 12px; font-family: monospace;"
+                );
+            }
+        }
+
+        class Performance {
+            static init() {
+                window.addEventListener("load", () => {
+                    const perfData = performance.getEntriesByType("navigation")[0];
+                    console.log("Page Load Time:", perfData.loadEventEnd - perfData.loadEventStart, "ms");
+                });
+            }
+        }
+
+        class App {
+            static init() {
+                if (elements.year) {
+                    elements.year.textContent = new Date().getFullYear();
+                }
+
+                SmoothScroll.init();
+                MobileMenu.init();
+                HeaderScroll.init();
+                ContactForm.init();
+                ProjectInteractions.init();
+                ConsoleWelcome.show();
+                Performance.init();
+
+                const animationObserver = new AnimationObserver();
+                animationObserver.observe();
+
+                window.addEventListener("load", () => {
+                    setTimeout(() => {
+                        if (elements.typingCode) {
+                            const typingAnimation = new TypingAnimation(elements.typingCode, codeLines, config.typingSpeed);
+                            typingAnimation.start();
+                        }
+                    }, 1000);
+                });
+            }
+        }
+
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", App.init);
+        } else {
+            App.init();
+        }
+
+        if (typeof module !== "undefined" && module.exports) {
+            module.exports = { App, TypingAnimation, SmoothScroll };
+        }
     </script>
 </body>
 
