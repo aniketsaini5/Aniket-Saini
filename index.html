@@ -1205,7 +1205,7 @@ def get_ai_response(user_input):
                 <pre><code>// Thank you for visiting my portfolio
 int main() {
     cout << "© <span id='year'></span> Aniket Saini. All rights reserved." << endl;
-    cout << "Built with HTML, CSS, JavaScript and lots of ❤️" << endl;
+    cout << "Built with HTML, CSS, JavaScript and lots of <i classs="fa fa-heart"></i> << endl;
     return 0;
 }</code></pre>
             </div>
@@ -1388,9 +1388,10 @@ int main() {
                 });
             }
         }
-class ContactForm {
+    class ContactForm {
     static init() {
-        elements.contactForm?.addEventListener("submit", this.handleSubmit.bind(this));
+        const form = document.querySelector('form[name="contact"]');
+        form?.addEventListener("submit", this.handleSubmit.bind(this));
     }
 
     static async handleSubmit(e) {
@@ -1405,13 +1406,21 @@ class ContactForm {
         const formData = new FormData(e.target);
 
         try {
-            await new Promise((resolve) => setTimeout(resolve, 2000));
+            const response = await fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
+            });
 
-            this.showMessage("Message sent successfully! I'll get back to you soon.", "success");
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            this.showMessage("cout << \"Message sent successfully!\" << endl;\ncout << \"I'll get back to you soon.\" << endl;", "success");
             e.target.reset();
         } catch (error) {
-            
-            this.showMessage("There was a problem submitting the form. Please try again.", "error");
+            console.error('Error:', error);
+            this.showMessage("cerr << \"Failed to send message. Please try again.\" << endl;", "error");
         } finally {
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
@@ -1419,38 +1428,47 @@ class ContactForm {
     }
 
     static showMessage(message, type) {
-        const alertDiv = document.getElementById('customAlert');
+        const alertDiv = document.createElement('div');
+        alertDiv.className = 'custom-alert';
         alertDiv.textContent = message;
 
-        // Apply inline styles
-        alertDiv.style.position = 'fixed';
-        alertDiv.style.top = '50%';
-        alertDiv.style.left = '50%';
-        alertDiv.style.transform = 'translate(-50%, -50%)';
-        alertDiv.style.padding = '20px';
-        alertDiv.style.borderRadius = '5px';
-        alertDiv.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
-        alertDiv.style.zIndex = '1000';
-        alertDiv.style.display = 'block';
-        alertDiv.style.textAlign = 'center';
+        // Apply styles
+        Object.assign(alertDiv.style, {
+            position: 'fixed',
+            top: '-100px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            padding: '20px',
+            background: '#1e1e1e',
+            color: type === 'success' ? '#00ff00' : '#ff4444',
+            borderRadius: '5px',
+            fontFamily: 'Consolas, monospace',
+            boxShadow: '0 0 10px rgba(0, 255, 0, 0.2)',
+            transition: 'top 0.5s ease',
+            zIndex: '1000',
+            border: `1px solid ${type === 'success' ? '#00ff00' : '#ff4444'}`,
+            whiteSpace: 'pre'
+        });
 
-        // Set background color based on message type
-        if (type === 'success') {
-            alertDiv.style.backgroundColor = '#295c4c'; 
-            alertDiv.style.color = '#4ade80';  
-        } else if (type === 'error') {
-            alertDiv.style.backgroundColor = '#f44336'; 
-            alertDiv.style.color = 'rgba(255, 0, 0, 0.459)';
-        }
+        document.body.appendChild(alertDiv);
+        
+        // Slide in
+        setTimeout(() => {
+            alertDiv.style.top = '20px';
+        }, 100);
 
-        // Hide the alert after 2 seconds
-        setTimeout(function() {
-            alertDiv.style.display = 'none';
+        // Remove after delay
+        setTimeout(() => {
+            alertDiv.style.top = '-100px';
+            setTimeout(() => alertDiv.remove(), 500);
         }, 3000);
     }
 }
 
-
+// Initialize the form
+document.addEventListener('DOMContentLoaded', () => {
+    ContactForm.init();
+});
         class ProjectInteractions {
             static init() {
                 $$(".project-card").forEach((card) => {
