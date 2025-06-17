@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+
+    <!-- Enhanced SEO Meta Tags -->
+    <title>Aniket Saini</title>
+    <meta name="description"
+        content="Aniket Saini - Passionate Full Stack Developer specializing in MERN stack, C++, Python, and modern web technologies. View my projects including TeamCode Hub, SCACLUB, and JAVI AI Assistant.">
+    <meta name="keywords"
+        content="Aniket Saini, Full Stack Developer, MERN Stack, React Developer, Node.js, MongoDB, C++ Programming, Python Developer, Web Development, Software Engineer, Portfolio">
+    <meta name="author" content="Aniket Saini">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Aniket Saini - Full Stack Developer Portfolio">
+    <meta property="og:description"
+        content="Passionate Full Stack Developer specializing in MERN stack, C++, and modern web technologies. Explore my innovative projects and technical expertise.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aniketsaini.dev">
+    <meta property="og:site_name" content="Aniket Saini Portfolio">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aniket Saini - Full Stack Developer">
+    <meta name="twitter:description"
+        content="Passionate Full Stack Developer specializing in MERN stack, C++, and modern web technologies.">
+    <meta name="twitter:creator" content="@aniketsaini">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://aniketsaini.dev">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/aniket.ico">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Aniket Saini",
+        "jobTitle": "Full Stack Developer",
+        "description": "Passionate Full Stack Developer specializing in MERN stack, C++, and modern web technologies",
+        "url": "https://aniketsaini.dev",
+        "sameAs": [
+            "https://github.com/aniketsaini5",
+            "https://linkedin.com/in/saini-aniket"
+        ],
+        "knowsAbout": ["JavaScript", "React", "Node.js", "MongoDB", "C++", "Python", "Web Development"],
+        "alumniOf": "Computer Science",
+        "email": "aniketsainikdl@gmail.com"
+    }
+    </script>
+    <style>
+        /* Fix horizontal overflow */
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Prevent long pre/code from overflowing screen */
+        pre,
+        code,
+        .code-block {
+            white-space: pre-wrap !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        /* Ensure project cards and sections don't overflow */
+        .project-card,
+        .skill-category,
+        .contact-form,
+        .contact-info {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Ensure input fields don’t overflow */
+        .form-input {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Fix mobile padding issues */
+        .section,
+        .about-content,
+        .skills-grid,
+        .projects-grid,
+        .contact-container {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --text-primary: #4ade80;
+            --text-secondary: #86efac;
+            --text-muted: #bbf7d0;
+            --border-color: rgba(74, 222, 128, 0.2);
+            --accent: #22c55e;
+        }
+
+        * {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="%234ade80"><rect width="2" height="20"/></svg>'), auto;
+        }
+
+        /* Special cursors for interactive elements */
+        button,
+        a,
+        input,
+        textarea,
+        .clickable {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="%2322c55e"><rect width="16" height="20" rx="2"/></svg>'), pointer !important;
+        }
+
+        /* Text selection cursor */
+        .code-content,
+        pre,
+        code {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="5" height="20" fill="%234ade80"><rect width="5" height="20"/></svg>'), text;
+        }
+
+        body {
+            font-family: 'Fira Code', monospace;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--text-primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .code-editor {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .editor-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .editor-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot.red {
+            background: #ef4444;
+        }
+
+        .dot.yellow {
+            background: #eab308;
+        }
+
+        .dot.green {
+            background: #22c55e;
+        }
+
+        .file-name {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .code-content {
+            font-size: 1rem;
+            line-height: 1.8;
+            white-space: pre-wrap;
+            color: var(--text-primary);
+        }
+
+        .cursor {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+
+        .section.alt {
+            background: rgba(30, 41, 59, 0.2);
+        }
+
+        /* About Section */
+        .about-content {
+            background: rgba(30, 41, 59, 0.3);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+
+        .code-block {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(74, 222, 128, 0.1);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            border-color: var(--text-primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(74, 222, 128, 0.1);
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-description {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: rgba(74, 222, 128, 0.2);
+            color: var(--text-secondary);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: rgba(74, 222, 128, 0.3);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(74, 222, 128, 0.1);
+            color: var(--text-primary);
+        }
+
+        /* Skills Section */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(30, 41, 59, 0.3);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+
+        .category-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .skill-percentage {
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--bg-secondary);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--text-primary), var(--accent));
+            border-radius: 4px;
+            transition: width 2s ease;
+            width: 0%;
+        }
+
+
+
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+
+        .contact-form {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--text-primary);
+            box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: rgba(187, 247, 208, 0.5);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--text-primary);
+        }
+
+        .form-input {
+            resize: none;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 23, 42, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 1rem 2rem;
+                border-top: 1px solid var(--border-color);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 1rem;
+            }
+
+            .code-editor {
+                padding: 1rem;
+            }
+
+            .code-content {
+                font-size: 0.9rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 1rem;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                background: rgba(15, 23, 42, 0.98);
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                z-index: 1000;
+                padding: 1rem;
+                border-top: 1px solid var(--border-color);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                font-size: 1.5rem;
+                background: none;
+                border: none;
+            }
+
+            .section {
+                padding: 2.5rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+                margin-bottom: 2rem;
+            }
+
+            .hero {
+                padding: 1rem;
+                text-align: center;
+                min-height: 80vh;
+            }
+
+            .code-editor {
+                padding: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .scroll-indicator {
+                bottom: 1rem;
+            }
+
+            .projects-grid,
+            .skills-grid,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card,
+            .skill-category,
+            .contact-info,
+            .contact-form {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .project-description {
+                font-size: 0.85rem;
+            }
+
+            .tech-tag {
+                font-size: 0.75rem;
+            }
+
+            .code-block {
+                font-size: 0.8rem;
+                padding: 1rem;
+            }
+
+            .form-input {
+                font-size: 0.85rem;
+                padding: 0.6rem;
+            }
+
+            .btn {
+                font-size: 0.85rem;
+                padding: 0.5rem 0.75rem;
+            }
+
+            .footer {
+                padding: 1rem;
+            }
+
+            .code-content {
+                font-size: 0.85rem;
+                line-height: 1.5;
+            }
+
+            .progress-bar {
+                height: 6px;
+            }
+
+            .progress-fill {
+                transition: width 1s ease;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <span> /&gt;__&lt;\</span>
+                <span>&lt;Aniket Saini/&gt;</span>
+            </div>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#about" class="nav-link">#include &lt;about&gt;</a></li>
+                    <li><a href="#projects" class="nav-link">#include &lt;projects&gt;</a></li>
+                    <li><a href="#skills" class="nav-link">#include &lt;skills&gt;</a></li>
+                    <li><a href="#contact" class="nav-link">#include &lt;contact&gt;</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="code-editor">
+                <div class="editor-header">
+                    <div class="editor-dots">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="file-name">main.cpp</div>
+                </div>
+                <div class="code-content" id="typingCode"></div>
+            </div>
+        </div>
+        <div class="scroll-indicator" onclick="scrollToSection('about')">
+            <div style="color: var(--text-secondary); margin-bottom: 0.5rem;">// Explore my work</div>
+            <div style="font-size: 1.5rem;">↓</div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section fade-in">
+        <h2 class="section-title">/* About Me */</h2>
+        <div class="about-content">
+            <div class="code-block">
+                <pre><code>class AboutMe {
+  private:
+    string passion = "Problem Solving";
+    int experience_years = fresher;
+    bool loves_coding = true;
+    
+  public:
+    string getDescription() {
+      return "Passionate full-stack developer with a strong "
+             "foundation in C++ and modern web technologies. "
+             "I enjoy building efficient, scalable applications "
+             "and solving complex algorithmic challenges.";
+    }
+    
+    vector&lt;string&gt; getInterests() {
+      return {
+        "Data Structures & Algorithms",
+        "C++ Programming",
+        "Python Development",
+        "Web Development",
+        "Open Source Contribution"
+      };
+    }
+};</code></pre>
+            </div>
+            <p style="color: var(--text-muted); line-height: 1.8;">
+                I'm a dedicated developer who bridges the gap between low-level programming concepts and modern web
+                development. My journey started with C++, which gave me a solid understanding of computer science
+                fundamentals, and has evolved into full-stack web development using the MERN stack.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="section alt fade-in" role="region" aria-labelledby="projects-title">
+        <h2 id="projects-title" class="section-title">/* Featured Projects */</h2>
+        <div class="projects-grid">
+            <!-- TeamCode Hub Project -->
+            <article class="project-card slide-in-left">
+                <header class="project-title">
+
+                    <h3>TeamCode Hub</h3>
+                </header>
+                <p class="project-description">
+                    A collaborative platform for developers to share code, manage projects, and work together
+                    seamlessly.
+                    Built with MERN stack and integrated with GitHub OAuth for secure authentication and repository
+                    management.
+                </p>
+                <div class="code-block">
+                    <pre><code>// GitHub OAuth Integration
+const githubAuth = async (req, res) => {
+  const { code } = req.query;
+  const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: JSON.stringify({ client_id, client_secret, code })
+  });
+  return tokenResponse.json();
+};</code></pre>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">Express.js</span>
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">GitHub OAuth</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aniketsaini5/TeamCodeHub" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-secondary" aria-label="View TeamCode Hub source code">
+                        <i class="fab fa-github" aria-hidden="true"></i> Code
+                    </a>
+                    <a href="#" class="btn btn-primary" aria-label="View TeamCode Hub demo (coming soon)">
+                        <i class="fas fa-external-link-alt" aria-hidden="true"></i> Demo Soon
+                    </a>
+                </div>
+            </article>
+
+            <!-- SCACLUB Project -->
+            <article class="project-card slide-in-right">
+                <header class="project-title">
+
+                    <h3>SCACLUB</h3>
+                </header>
+                <p class="project-description">
+                    A modern club management system built with React and integrated with Google Apps Script for seamless
+                    data management. Features member registration, event management, and automated notifications.
+                </p>
+                <div class="code-block">
+                    <pre><code>// Google Apps Script Integration
+const submitToGoogleSheets = async (formData) => {
+  const response = await fetch(GOOGLE_SCRIPT_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(formData)
+  });
+  return response.json();
+};</code></pre>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Google Apps Script</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">Vercel</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aniketsaini5/SCACLUB" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-secondary" aria-label="View SCACLUB source code">
+                        <i class="fab fa-github" aria-hidden="true"></i> Code
+                    </a>
+                    <a href="https://scaclub.vercel.app/" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-primary" aria-label="View SCACLUB live demo">
+                        <i class="fas fa-external-link-alt" aria-hidden="true"></i> Live Demo
+                    </a>
+                </div>
+            </article>
+
+            <!-- JAVI Project -->
+            <article class="project-card slide-in-left">
+                <header class="project-title">
+
+                    <h3>JAVI - AI Assistant</h3>
+                </header>
+                <p class="project-description">
+                    An intelligent desktop AI assistant built with Python and Tkinter GUI, powered by Google's Gemini
+                    API.
+                    Features voice recognition, natural language processing, and task automation capabilities.
+                </p>
+                <div class="code-block">
+                    <pre><code># Gemini AI Integration
+import google.generativeai as genai
+
+def get_ai_response(user_input):
+    genai.configure(api_key=GEMINI_API_KEY)
+    model = genai.GenerativeModel('gemini-pro')
+    response = model.generate_content(user_input)
+    return response.text</code></pre>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Tkinter</span>
+                    <span class="tech-tag">Gemini API</span>
+                    <span class="tech-tag">Speech Recognition</span>
+                    <span class="tech-tag">NLP</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aniketsaini5/JAVI" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-secondary" aria-label="View JAVI source code">
+                        <i class="fab fa-github" aria-hidden="true"></i> Code
+                    </a>
+                    <a href="https://drive.google.com/drive/folders/1MI_Dj5PEOEzuPF3G5RW1Zr6iImGd37dw?hl=en"
+                        target="_blank" rel="noopener noreferrer" class="btn btn-primary"
+                        aria-label="Download JAVI application">
+                        <i class="fas fa-download" aria-hidden="true"></i> Download
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section fade-in">
+        <h2 class="section-title">/* Technical Skills */</h2>
+        <div class="skills-grid">
+            <div class="skill-category slide-in-left">
+                <h3 class="category-title">// Programming Languages</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">C/C++</span>
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="90"></div>
+                    </div>
+                    <div class="code-block">
+                        <code>int main() { return 0; }</code>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Python</span>
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="90"></div>
+                    </div>
+                    <div class="code-block">
+                        <code>print('Hello World!')</code>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">JavaScript</span>
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="85"></div>
+                    </div>
+                    <div class="code-block">
+                        <code>const func = () => {}</code>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Java</span>
+                        <span class="skill-percentage">50%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="50"></div>
+                    </div>
+                    <div class="code-block">
+                        <code>public static void main(a) </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category slide-in-right">
+                <h3 class="category-title">// Frontend Technologies</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">React.js</span>
+                        <span class="skill-percentage">88%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="88"></div>
+                    </div>
+                    <div class="code-block">
+                        <code>const [state, setState] = useState()</code>
+                    </div>
+                </div>
+                <!-- <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Next.js</span>
+                        <span class="skill-percentage">82%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="82"></div>
+                    </div>
+                    <div class="code-block">
+                        <code>export default function Page()</code>
+                    </div>
+                </div> -->
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">HTML5</span>
+                        <span class="skill-percentage">99%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="99"></div>
+                    </div>
+                    <div class="code-block">
+                        <code>&lt;div class='container'&gt;</code>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">CSS3</span>
+                        <span class="skill-percentage">99%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="99"></div>
+                    </div>
+                    <div class="code-block">
+                        <code>.container{ 
+                            height=100px;}
+                        </code>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name"> Bootstrap 5</span>
+                        <span class="skill-percentage">99%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="99"></div>
+                    </div>
+                    <div class="code-block">
+                        <code>&lt;p class='display 5'&gt;</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category slide-in-left">
+                <h3 class="category-title">// Backend & Database</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Node.js</span>
+                        <span class="skill-percentage">83%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="83"></div>
+                    </div>
+                    <div class="code-block">
+                        <code>app.listen(3000)</code>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Express.js</span>
+                        <span class="skill-percentage">80%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="80"></div>
+                    </div>
+                    <div class="code-block">
+                        <code>app.get('/api')</code>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">MongoDB</span>
+                        <span class="skill-percentage">78%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="78"></div>
+                    </div>
+                    <div class="code-block">
+                        <code>db.collection.find({})</code>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">MySQL</span>
+                        <span class="skill-percentage">75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="75"></div>
+                    </div>
+                    <div class="code-block">
+                        <code>Select me from Myself;</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category slide-in-right">
+                <h3 class="category-title">// Tools & Technologies</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Git</span>
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="85"></div>
+                    </div>
+                    <div class="code-block">
+                        <code>git commit -m 'message'</code>
+                    </div>
+                </div>
+                <!-- <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Docker</span>
+                        <span class="skill-percentage">70%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="70"></div>
+                    </div>
+                    <div class="code-block">
+                        <code>FROM node:alpine</code>
+                    </div>
+                </div> -->
+                <div class="skill-header">
+                    <span class="skill-name">GitHub</span>
+                    <span class="skill-percentage">90%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" data-width="90"></div>
+                </div>
+                <div class="code-block">
+                    <code>git push origin main</code>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Linux</span>
+                        <span class="skill-percentage">80%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="80"></div>
+                    </div>
+                    <div class="code-block">
+                        <code>sudo apt install package</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section alt fade-in">
+        <h2 class="section-title">/* Get In Touch */</h2>
+        <div class="contact-container">
+            <div class="contact-info slide-in-left">
+                <h3 class="category-title">// Contact Information</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                    Let's connect and discuss opportunities
+                </p>
+                <div class="code-block">
+                    <pre><code>struct ContactInfo {
+  string email = "aniketsainikdl@gmail.com";
+  string linkedin = "linkedin.com/in/saini-aniket";
+  string github = "github.com/aniketsaini5";
+  bool available_for_hire = true;
+};</code></pre>
+                </div>
+                <div class="contact-links">
+                    <a href="mailto:aniketsainikdl@gmail.com" class="contact-link">
+                        <span><i class="fa-solid fa-envelope" style="color: #4ade80;"></i></span>
+                        <span>aniketsainikdl@gmail.com</span>
+                    </a>
+                    <a href="https://github.com/aniketsaini5" target="_blank" class="contact-link">
+                        <span><i class="fa-brands fa-github" style="color: #4ade80;"></i></span>
+                        <span>github.com/aniketsaini5</span>
+                    </a>
+                    <a href="https://linkedin.com/in/saini-aniket" target="_blank" class="contact-link">
+                        <span><i class="fa-brands fa-linkedin" style="color: #4ade80;"></i></span>
+                        <span>linkedin.com/in/saini-aniket</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-form slide-in-right">
+                <h3 class="category-title">// Send Message</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                    Drop me a line and I'll get back to you
+                </p>
+                <form id="contactForm" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="contactForm" />
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-input" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-input" placeholder="your.email@example.com"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" class="form-input" rows="4" placeholder="Your message here..."
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <span>--></span>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="code-block">
+            <pre><code>// Thank you for visiting my portfolio
+int main() {
+    cout << "© <span id='year'></span> Aniket Saini. All rights reserved." << endl;
+    cout << "Built with HTML, CSS, JavaScript and lots of <i class="fas fa-heart"></i> " << endl;
+    return 0;
+}</code></pre>
+        </div>
+        <p style="color: rgba(187, 247, 208, 0.7); font-size: 0.9rem; margin-top: 1rem;">
+            Designed and developed with passion for clean code and great user experiences
+        </p>
+    </footer>
+
+    <script>
+        // change the current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Typing Animation
+        const codeLines = [
+            "#include &lt;iostream&gt;",
+            "#include &lt;string&gt;",
+            "#include &lt;developer&gt;",
+            "",
+            "class Developer {",
+            "  public:",
+            '    string name = "Aniket Saini";',
+            '    string role = "Full Stack Developer";',
+            "    vector<string> skills = {",
+            '      "C++", "JavaScript", "React",',
+            '      "Node.js", "MongoDB", "Express", "Python" ',
+            "    };",
+            "    ",
+            "    void introduce() {",
+            '      cout << "Hello, World!" << endl;',
+            '      cout << "I\'m " << Aniket Saini << endl;',
+            '      cout << "Welcome to my portfolio" << endl;',
+            "    }",
+            "};",
+        ];
+
+        let currentIndex = 0;
+        let currentText = "";
+        const typingElement = document.getElementById('typingCode');
+        const fullText = codeLines.join('\n');
+
+        function typeCode() {
+            if (currentIndex < fullText.length) {
+                currentText += fullText[currentIndex];
+                typingElement.innerHTML = currentText + '<span class="cursor">█</span>';
+                currentIndex++;
+                setTimeout(typeCode, 50);
+            } else {
+                // Keep cursor blinking
+                setInterval(() => {
+                    const cursor = typingElement.querySelector('.cursor');
+                    if (cursor) {
+                        cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
+                    }
+                }, 500);
+            }
+        }
+
+        // Start typing animation when page loads
+        window.addEventListener('load', () => {
+            setTimeout(typeCode, 1000);
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Add click listeners to nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+
+                    // Animate progress bars when skills section is visible
+                    if (entry.target.id === 'skills') {
+                        setTimeout(() => {
+                            document.querySelectorAll('.progress-fill').forEach(bar => {
+                                const width = bar.getAttribute('data-width');
+                                bar.style.width = width + '%';
+                            });
+                        }, 500);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Contact Form Handling
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+
+            submitBtn.innerHTML = '<span>&#8593;</span> Sending...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(e.target);
+
+            try {
+                const response = await fetch('/', {
+                    method: 'POST',
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString()
+                });
+
+                if (response.ok) {
+                    alert('Message sent successfully! I\'ll get back to you soon.');
+                    e.target.reset();
+                } else {
+                    throw new Error('Network response was not ok.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was a problem submitting the form.');
+            } finally {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 23, 42, 0.98)';
+            } else {
+                header.style.background = 'rgba(15, 23, 42, 0.95)';
+            }
+        });
+
+        // Add some interactive effects
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Console welcome message
+        console.log(`
+%c/* Welcome to my portfolio! */
+%cclass Developer {
+  public:
+    void greetVisitor() {
+      cout << "Thanks for checking out my code!" << endl;
+      cout << "Feel free to reach out if you'd like to connect." << endl;
+    }
+};`,
+            'color: #4ade80; font-size: 16px; font-weight: bold;',
+            'color: #86efac; font-size: 12px; font-family: monospace;'
+        );
+    </script>
+</body>
+
+</html>
