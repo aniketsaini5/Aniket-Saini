@@ -824,6 +824,37 @@
                 transition: width 1s ease;
             }
         }
+
+        .custom-alert {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e1e1e;
+    color: #00ff00;
+    padding: 20px;
+    border-radius: 5px;
+    font-family: 'Consolas', monospace;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+    transition: top 0.5s ease;
+    z-index: 1000;
+    border: 1px solid #00ff00;
+    white-space: pre;
+}
+
+.custom-alert.show {
+    top: 20px;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px rgba(0, 255, 0, 0.2);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+    }
+}
     </style>
 </head>
 
@@ -1446,39 +1477,39 @@ int main() {
             observer.observe(el);
         });
 
-        // Contact Form Handling
-        document.getElementById('contactForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
+       // Update your form handling code
+document.getElementById('contactForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
 
-            submitBtn.innerHTML = '<span>&#8593;</span> Sending...';
-            submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span>   &#8593;</span> Sending...';
+    submitBtn.disabled = true;
 
-            const formData = new FormData(e.target);
+    const formData = new FormData(e.target);
 
-            try {
-                const response = await fetch('/', {
-                    method: 'POST',
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: new URLSearchParams(formData).toString()
-                });
-
-                if (response.ok) {
-                    alert('Message sent successfully! I\'ll get back to you soon.');
-                    e.target.reset();
-                } else {
-                    throw new Error('Network response was not ok.');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('There was a problem submitting the form.');
-            } finally {
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }
+    try {
+        const response = await fetch('/', {
+            method: 'POST',
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
         });
+
+        if (response.ok) {
+            showCodeAlert(true);
+            e.target.reset();
+        } else {
+            throw new Error('Network response was not ok.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        showCodeAlert(false);
+    } finally {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    }
+});
 
         // Header scroll effect
         window.addEventListener('scroll', () => {
