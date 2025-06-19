@@ -183,6 +183,48 @@
             color: var(--text-primary);
         }
 
+        resume-btn {
+            background: linear-gradient(135deg, var(--text-primary), var(--accent));
+            color: var(--bg-primary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resume-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .resume-btn:hover::before {
+            left: 100%;
+        }
+
+        .resume-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(74, 222, 128, 0.3);
+        }
+
+        .resume-btn:active {
+            transform: translateY(0);
+        }
+        
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -638,8 +680,21 @@
                 display: flex;
             }
 
+            .nav-menu.active .resume-btn {
+                align-self: flex-start;
+                margin-top: 1rem;
+            }
+
             .mobile-menu-btn {
                 display: block;
+            }
+
+            .resume-btn {
+                display: none;
+            }
+
+            .nav-menu.active .resume-btn {
+                display: inline-flex;
             }
 
             .hero {
@@ -688,6 +743,11 @@
                 padding: 1.5rem;
             }
 
+            .resume-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+
             
         }
 
@@ -734,6 +794,12 @@
                 <li><a href="#projects" class="nav-link">#include &lt;projects&gt;</a></li>
                 <li><a href="#skills" class="nav-link">#include &lt;skills&gt;</a></li>
                 <li><a href="#contact" class="nav-link">#include &lt;contact&gt;</a></li>
+                 <li>
+                    <a href="/resume.pdf" download="Aniket Saini Resume.pdf" class="resume-btn" id="resumeBtn">
+                        <i class="fas fa-download"></i>
+                        Resume
+                    </a>
+                </li>
             </ul>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
                 <i class="fas fa-bars"></i>
@@ -1215,6 +1281,7 @@ int main() {
             scrollIndicator: $("#scrollIndicator"),
             contactForm: $("#contactForm"),
             year: $("#year"),
+            resumeBtn: $("#resumeBtn"),
         };
 
         const config = {
@@ -1282,7 +1349,21 @@ int main() {
                 return div.innerHTML;
             }
         }
-
+        class ResumeDownload {
+            static init() {
+                $$(".resume-btn").forEach((btn) => {
+                    btn.addEventListener("click", (e) => {
+                        // Add download tracking or analytics here if needed
+                        console.log("Resume download initiated");
+                        
+                        // Optional: Show a brief success message
+                        setTimeout(() => {
+                            showMessage('cout << "Resume download started!" << endl;', 'success');
+                        }, 100);
+                    });
+                });
+            }
+        }
         class SmoothScroll {
             static scrollTo(elementId) {
                 const element = $(`#${elementId}`);
@@ -1500,7 +1581,7 @@ function showMessage(message, type) {
                 SmoothScroll.init();
                 MobileMenu.init();
                 HeaderScroll.init();
-               
+                ResumeDownload.init();
                 ProjectInteractions.init();
                 ConsoleWelcome.show();
                 Performance.init();
